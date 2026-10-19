@@ -1,1 +1,35 @@
-just a note
+==================================================
+             GIT DEPLOYMENT CHEAT SHEET           
+==================================================
+
+Every time you want to add a file and send it to the internet,
+run these 3 steps in order inside your terminal:
+
+STEP 1: STAGE THE CHANGES
+--------------------------------------------------
+To stage a single specific file:
+  git add filename.ext
+
+To stage ALL new, changed, or deleted files at once:
+  git add .
+
+
+STEP 2: COMMIT LOCALLY
+--------------------------------------------------
+Lock in your changes on your local computer with a message:
+  git commit -m "your custom message here"
+
+
+STEP 3: PUSH TO THE INTERNET
+--------------------------------------------------
+Upload your changes to your online repository (e.g., GitHub):
+  git push origin main
+
+*(Note: Change 'main' to 'master' if your project uses the older branch naming format).*
+
+
+USEFUL CHECK COMMAND
+--------------------------------------------------
+To see what files are changed, staged, or untracked at any time:
+  git status
+==================================================
