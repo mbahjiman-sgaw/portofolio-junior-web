@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Profil calon Junior Web Programmer" />
+    <title>Form - Handito</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <header>
+        <header class="situs-header">
+            <div class="kontainer navbar">
+                <!-- membungkus konten -->
+                <a class="logo" href="index.html">Handito</a>
+                <!-- <h1>Handito</h1> -->
+                <p>Calon Junior Web Programmer</p>
+                <nav>
+                    <ul class="menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="profile.html">Tentang</a></li>
+                        <li><a href="keahlian.html">Keahlian</a></li>
+                        <li><a href="kontak.html">Kontak</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+   <main>
+      <form action="proses.php" method="post" enctype="multipart/form-data">
+        <fieldset>
+          <legend>Data Diri</legend>
+          <p>
+            <label for="nama">Nama lengkap</label>
+            <input
+              type="text"
+              id="nama"
+              name="nama"
+              required
+              minlength="3"
+              maxlength="60"
+            />
+          </p>
+          <p>
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="jan@cok.com"
+            />
+          </p>
+          <p>
+            <label for="hp">No. HP</label>
+            <input
+              type="tel"
+              id="hp"
+              name="hp"
+              required
+              placeholder="08..."
+              pattern="08[0-9]{8,11}"
+              title="Awali dengan 08, 10-13 digit"
+            />
+          </p>
+          <p>
+            <label for="lahir">Tanggal lahir</label>
+            <input type="date" id="lahir" name="lahir" required />
+          </p>
+          <p>
+            <span>Jenis kelamin</span><br />
+            <label style="display: inline-block; font-weight: normal; margin-right: 1rem;">
+              <input type="radio" name="jk" value="L" required style="width: auto;" />
+              Laki-laki
+            </label>
+            <label style="display: inline-block; font-weight: normal;">
+              <input type="radio" name="jk" value="P" style="width: auto;" />
+              Perempuan
+            </label>
+          </p>
+        </fieldset>
+        <fieldset>
+          <legend>Pilihan Kelas</legend>
+          <p>
+            <label for="kelas">Kelas</label>
+            <select id="kelas" name="kelas" required>
+              <option value="">-- Pilih kelas --</option>
+              <option value="web">Web Programming</option>
+              <option value="data">Data Dasar</option>
+            </select>
+          </p>
+          <p>
+            <span>Minat</span><br />
+            <label style="display: inline-block; font-weight: normal; margin-right: 1rem;">
+              <input type="checkbox" name="minat[]" value="frontend" style="width: auto;" />
+              Frontend
+            </label>
+            <label style="display: inline-block; font-weight: normal;">
+              <input type="checkbox" name="minat[]" value="backend" style="width: auto;" />
+              Backend
+            </label>
+          </p>
+          <p>
+            <label for="alamat">Alamat</label>
+            <textarea
+              id="alamat"
+              name="alamat"
+              rows="3"
+              maxlength="200"
+            ></textarea>
+          </p>
+          <p>
+            <label for="foto">Foto (JPG/PNG/JPEG/3GP)</label>
+            <input
+              type="file"
+              id="foto"
+              name="foto"
+              accept=".jpg,.jpeg,.png,.3gp"
+            />
+          </p>
+        </fieldset>
+        <p>
+          <label style="display: inline-block; font-weight: normal;">
+            <input type="checkbox" name="setuju" required style="width: auto;" /> Data yang saya isi benar
+          </label>
+        </p>
+        <button type="submit" class="tombol">Daftar</button>
+        <button type="reset">Atur ulang</button>
+      </form>
+    </main>
+    <footer id="footer">
+      <p><small>&copy; 2026 Handito</small></p>
+    </footer>
+  </body>
+</html>
