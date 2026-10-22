@@ -1,0 +1,20 @@
+Algoritma PenentuanGrade
+    // 1. Menerima input nilai dari pengguna
+    Baca nilai (0-100)
+    
+    // 2. Menentukan huruf grade berdasarkan kondisi
+    Jika nilai >= 85 maka
+        grade = "A"
+    Atau jika nilai >= 70 maka
+        grade = "B"
+    Atau jika nilai >= 55 maka
+        grade = "C"
+    Jika tidak
+        grade = "D"
+    Akhir Jika
+
+    // 3. Menampilkan atau mengembalikan nilai grade
+    Kembalikan/Tampilkan grade
+Selesai
+
+

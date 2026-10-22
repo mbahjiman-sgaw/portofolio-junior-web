@@ -1,0 +1,28 @@
+Algoritma KalkulatorSederhana
+    // 1. Menampilkan judul program
+    Tampilkan "=== SIMPLE CALCULATOR ==="
+
+    // 2. Menerima input angka pertama, angka kedua, dan operator
+    Baca num1
+    Baca num2
+    Baca op
+
+    // 3. Menghitung hasil berdasarkan operator yang dipilih
+    Pilih Berdasarkan op:
+        Kasus "+":
+            num3 = num1 + num2
+            Keluar dari pilihan
+        Kasus "-":
+            num3 = num1 - num2
+            Keluar dari pilihan
+        Kasus "*":
+            num3 = num1 * num2
+            Keluar dari pilihan
+        Kasus "/":
+            num3 = num1 / num2
+            Keluar dari pilihan
+    Akhir Pilih
+
+    // 4. Menampilkan atau mengembalikan hasil perhitungan
+    Tampilkan/Kembalikan num3
+Selesai
