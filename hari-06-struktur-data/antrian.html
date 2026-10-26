@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Antrean Loket</h1>
+    <p>Sedang dipanggil: <strong id="dipanggil">-</strong></p>
+    <p>Menunggu: <span id="jumlah">0</span></p>
+    <button id="ambil">Ambil Nomor</button>
+    <button id="panggil">Panggil Berikutnya</button>
+    <ol id="daftar"></ol>
+
+    <textarea id="editor" rows="6" cols="50"></textarea>
+    <p>
+      <button id="undo" disabled>Undo</button>
+      <button id="redo" disabled>Redo</button>
+      <span id="info"></span>
+    </p>
+    <script type="module" src="js/antrian.js"></script>
+    <script type="module" src="js/editor.js"></script>
+  </body>
+</html>
