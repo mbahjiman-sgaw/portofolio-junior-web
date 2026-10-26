@@ -1,0 +1,139 @@
+console.log(" ===== PENGOLAH NILAI ===== ");
+
+function hitungRataRata(daftar) {
+  if (daftar.length === 0) return 0;
+  return daftar.reduce((jumlah, n) => jumlah + n, 0) / daftar.length;
+}
+
+function cariTertinggi(daftar) {
+  return daftar.length === 0 ? null : Math.max(...daftar);
+}
+
+function cariTerendah(daftar) {
+  return daftar.length === 0 ? null : Math.min(...daftar);
+}
+
+function tentukanGrade(nilai) {
+  if (nilai >= 85) return "A";
+  if (nilai >= 70) return "B";
+  if (nilai >= 55) return "C";
+  return "D";
+}
+
+function tentukanStatus(nilai) {
+  return nilai >= BATAS_LULUS ? "Lulus" : "Tidak lulus";
+}
+
+function nilaiValid(nilai) {
+  return Number.isFinite(nilai) && nilai >= 0 && nilai <= 100;
+}
+
+// ANNOTATION: Fungsi tampilkanMenu() digunakan untuk mencetak teks menu pilihan ke console
+// Setiap kali perulangan `while` berjalan, fungsi ini dipanggil agar menu selalu muncul di layar terminal.
+function tampilkanMenu() {
+  console.log("\n===== PENGOLAH NILAI =====");
+  console.log("1. Input nilai siswa");
+  console.log("2. Tampilkan statistik");
+  console.log("3. Tampilkan predikat per siswa");
+  console.log("4. Keluar");
+}
+
+function tampilkanLaporan(nama, nilai, grade, status) {
+  // Diubah dari alert() ke console.log() karena ini aplikasi berbasis CLI Node.js
+  console.log(`Nama: ${nama} | Nilai: ${nilai} | Grade: ${grade} | Status: ${status}`);
+}
+
+const readline = require("readline/promises");
+const { stdin: input, stdout: output } = require("process");
+const NILAI_MIN = 0;
+const NILAI_MAKS = 100;
+const BATAS_LULUS = 70;
+
+async function main() {
+  const rl = readline.createInterface({
+    input,
+    output,
+  });
+  const daftarNama = [];
+  const daftarNilai = [];
+
+  let jalan = true;
+  while (jalan) {
+    // Menampilkan menu di setiap iterasi perulangan agar user bisa melihat pilihan kembali
+    tampilkanMenu();
+    
+    // Menerima input pilihan menu dari user (berupa string "1", "2", "3", atau "4")
+    const pilihan = await rl.question("Pilih menu (1-4): ");
+    
+    // ANNOTATION: Blok switch (pilihan) mencocokkan input user dengan 4 case menu yang tersedia
+    switch (pilihan) {
+      case "1": {
+        // Pilihan 1: Input nama dan nilai siswa
+        const nama = (await rl.question("Nama siswa: ")).trim();
+        const nilai = Number(await rl.question("Nilai (0-100): "));
+        
+        // Menggunakan fungsi nilaiValid() untuk memastikan input valid
+        if (nama.length > 0 && nilaiValid(nilai)) {
+          daftarNama.push(nama);
+          daftarNilai.push(nilai);
+          console.log("Data siswa berhasil ditambahkan!");
+        } else {
+          console.log("Input tidak valid! Pastikan nama tidak kosong dan nilai antara 0-100.");
+        }
+        break;
+      }
+      case "2": {
+        // Pilihan 2: Tampilkan statistik (rata-rata, tertinggi, terendah)
+        if (daftarNilai.length === 0) {
+          console.log("Daftar siswa dan nilai masih kosong.");
+        } else {
+          // Memanggil fungsi helper dengan melewatkan parameter daftarNilai secara benar
+          const rataRata = hitungRataRata(daftarNilai);
+          const maxNilai = cariTertinggi(daftarNilai);
+          const minNilai = cariTerendah(daftarNilai);
+
+          console.log("\n=== STATISTIK NILAI ===");
+          console.log(`Rata-rata: ${rataRata.toFixed(2)}`);
+          console.log(`Nilai Tertinggi: ${maxNilai}`);
+          console.log(`Nilai Terendah: ${minNilai}`);
+        }
+        break;
+      }
+
+      case "3": {
+        // Pilihan 3: Tampilkan predikat dan status lulus/tidak lulus per siswa
+        if (daftarNama.length === 0) {
+          console.log("Belum ada data siswa untuk ditampilkan.");
+        } else {
+          console.log("\n=== DAFTAR PREDIKAT SISWA ===");
+
+          for (let i = 0; i < daftarNama.length; i++) {
+            const nama = daftarNama[i];
+            const nilai = daftarNilai[i];
+
+            // Mengirimkan nilai ke fungsi penentu grade dan status
+            const grade = tentukanGrade(nilai);
+            const status = tentukanStatus(nilai);
+            
+            // Menampilkan laporan per baris menggunakan fungsi tampilkanLaporan
+            tampilkanLaporan(nama, nilai, grade, status);
+          }
+        }
+        break;
+      }
+
+      case "4": {
+        // Pilihan 4: Keluar dari program
+        jalan = false;
+        console.log("Terima kasih telah menggunakan pengolah nilai.");
+        break;
+      }
+      default:
+        console.log("Pilihan tidak valid. Silakan masukkan angka 1 sampai 4.");
+    }
+  }
+  rl.close();
+}
+
+main();
+
