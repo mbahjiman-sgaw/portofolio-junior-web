@@ -1,3 +1,7 @@
-// const nama = (await rl.question("Nama siswa: ")).trim();
-// const nama = prompt("Nama: ");
-// const nilai = Number(prompt("Nilai: "));
+function tampilkanMenu() {
+//   console.log("\n===== PENGOLAH NILAI =====");
+//   console.log("1. Input nilai siswa");
+//   console.log("2. Tampilkan statistik");
+//   console.log("3. Tampilkan predikat per siswa");
+//   console.log("4. Keluar");
+// }

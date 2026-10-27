@@ -103,31 +103,31 @@ tampilkanMenu()
           // 2. Loop through all students using their index (i)
           for (let i = 0; i < daftarNama.length; i++) {
             const nama = daftarNama[i];
-            const nilai = daftarNilai[i];
+              const nilai = daftarNilai[i];
 
-            // 3. Determine Grade (A, B, C, or D)
-           tentukanGrade();
-            // 4. Determine Pass / Fail using your BATAS_LULUS (70) variable
-           tentukanStatus();
-            // 5. Print the formatted row for this specific student
-            tampilkanLaporan()
-                      }
+              // 3. Determine Grade (A, B, C, or D)
+            tentukanGrade();
+              // 4. Determine Pass / Fail using your BATAS_LULUS (70) variable
+            tentukanStatus();
+              // 5. Print the formatted row for this specific student
+              tampilkanLaporan()
+                        }
+          }
+          break;
         }
-        break;
+
+        case "4":
+          jalan = false;
+          console.log("Terima kasih.");
+          break;
+        default:
+          console.log("Pilihan tidak valid.");
       }
-
-      case "4":
-        jalan = false;
-        console.log("Terima kasih.");
-        break;
-      default:
-        console.log("Pilihan tidak valid.");
     }
+    rl.close();
   }
-  rl.close();
-}
 
-main();
+  main();
 
 console.assert(hitungRataRata([80, 90]) === 85, `rata-rata 80, 90 harus 85`);
 console.assert(hitungRataRata([]) === 0, `rata-rata array kosong harus 0`);

@@ -1,6 +1,6 @@
 function hitungRataRata(daftar) {
   if (daftar.length === 0) return 0;
-  return daftar.reduce((jumlah, n) => jumlah + n, 0) / daftar.length;
+  return daftar.reduce((jumlah, n) => jumlah + n, 0) // daftar.length;
 }
 
 function cariTertinggi(daftar) {
@@ -26,17 +26,17 @@ function nilaiValid(nilai) {
   return Number.isFinite(nilai) && nilai >= 0 && nilai <= 100;
 }
 
-function tampilkanMenu() {
-  console.log("\n===== PENGOLAH NILAI =====");
-  console.log("1. Input nilai siswa");
-  console.log("2. Tampilkan statistik");
-  console.log("3. Tampilkan predikat per siswa");
-  console.log("4. Keluar");
-}
+// function tampilkanMenu() {
+//   console.log("\n===== PENGOLAH NILAI =====");
+//   console.log("1. Input nilai siswa");
+//   console.log("2. Tampilkan statistik");
+//   console.log("3. Tampilkan predikat per siswa");
+//   console.log("4. Keluar");
+// }
 
-function tampilkanLaporan(nama, nilai) {
-  alert(`Nama: ${nama} | Nilai: ${nilai} | `);
-}
+// function tampilkanLaporan(nama, nilai) {
+//   alert(`Nama: ${nama} | Nilai: ${nilai} | `);
+// }
 
 // // const nama = (await rl.question("Nama siswa: ")).trim();
 // const nama = prompt("Nama: ");
