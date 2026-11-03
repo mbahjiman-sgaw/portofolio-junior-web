@@ -1,0 +1,28 @@
+PSEUDOCODE PROSES LOGIN
+
+MULAI
+	Tampilkan halaman login (misalnya login.php)
+	Persilakan pengguna memasukkan email dan kata sandi
+	Saat pengguna menekan tombol Masuk, kirim data ke pemroses login
+		(misalnya proses-login.php)
+
+	Periksa apakah email dan kata sandi sudah diisi
+	JIKA ada kolom kosong
+		Beri tahu pengguna bahwa semua kolom perlu diisi
+		Kembalikan pengguna ke halaman login
+
+	Muat konfigurasi dan hubungkan aplikasi ke basis data melalui file koneksi
+		(misalnya koneksi.php)
+	Cari akun berdasarkan email yang dimasukkan
+	JIKA akun tidak ditemukan
+		Beri tahu pengguna bahwa email atau kata sandi salah
+		Kembalikan pengguna ke halaman login
+
+	Cocokkan kata sandi yang dimasukkan dengan data akun
+	JIKA kata sandi tidak cocok
+		Beri tahu pengguna bahwa email atau kata sandi salah
+		Kembalikan pengguna ke halaman login
+
+	Buat sesi untuk pengguna melalui komponen pengelolaan sesi
+	Arahkan pengguna ke halaman tujuan setelah login (misalnya dashboard.php)
+SELESAI
