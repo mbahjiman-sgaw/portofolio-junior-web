@@ -1,0 +1,14 @@
+{
+	"name": "no-11",
+	"version": "1.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"start": "node src/index.js"
+	},
+	"description": "Dokumentasi untuk project tugas ke-11 pada portofolio Junior Web.",
+	"main": "index.js",
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
+}
